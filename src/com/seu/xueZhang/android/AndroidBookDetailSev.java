@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -102,7 +103,7 @@ public class AndroidBookDetailSev extends HttpServlet {
 		}
 
 		array.put(obj);
-		response.setCharacterEncoding("GBK");
+		((ServletRequest) response).setCharacterEncoding("GBK");
 
 
 		PrintWriter writer = response.getWriter();

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -89,7 +90,7 @@ public class AndroidPurchaseSev extends HttpServlet {
         String name = request.getParameter("name");  
 		String nameR = new String(name.getBytes("ISO-8859-1"), "UTF-8");
 		String password = request.getParameter("password");
-        response.setCharacterEncoding("UTF-8"); 
+        ((ServletRequest) response).setCharacterEncoding("UTF-8"); 
         
         ICustomerManagerDao icmd = new ICustomerManagerDaoImpl();
         Customer cus = icmd.checkUserByUserNameAndPassword(name, password);

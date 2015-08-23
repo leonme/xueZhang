@@ -7,6 +7,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -82,7 +83,7 @@ public class AndroidLoginSev extends HttpServlet {
         System.out.println("name="+name);  
         System.out.println("password="+password);  
         System.out.println("flag="+flag);
-        response.setCharacterEncoding("UTF-8"); 
+        ((ServletRequest) response).setCharacterEncoding("UTF-8"); 
         ICustomerManagerDao icmd = new ICustomerManagerDaoImpl();
         try{
         	Customer c = icmd.checkUserByUserNameAndPassword(name, password);

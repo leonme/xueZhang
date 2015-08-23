@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -92,7 +93,7 @@ public class AndroidInfoSev extends HttpServlet {
 		String password = request.getParameter("password");
         System.out.println("POST");  
       //  System.out.println("search_value="+nameR);  
-        response.setCharacterEncoding("UTF-8"); 
+        ((ServletRequest) response).setCharacterEncoding("UTF-8"); 
         
         ICustomerManagerDao icmd = new ICustomerManagerDaoImpl();
         Customer cus = icmd.checkUserByUserNameAndPassword(name,password);
@@ -126,7 +127,7 @@ public class AndroidInfoSev extends HttpServlet {
 			}			
 			array.put(obj);
 		
-			response.setCharacterEncoding("GBK");
+			((ServletRequest) response).setCharacterEncoding("GBK");
 		PrintWriter writer = response.getWriter();
 		writer.write(array.toString());
 		writer.flush();

@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -128,7 +129,7 @@ public class AndroidBroSev extends HttpServlet {
 			}
 			array.put(obj);
 		}
-		response.setCharacterEncoding("GBK");
+		((ServletRequest) response).setCharacterEncoding("GBK");
 		PrintWriter writer = response.getWriter();
 		writer.write(array.toString());
 		writer.flush();
